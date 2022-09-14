@@ -5,9 +5,7 @@ function CreateArea(props) {
     title: "",
     content: ""
   });
-  const fnHandleSubmit = (event) => {
-    event.preventDefault();
-  };
+ 
   function handleChange(event) {
     const { name, value } = event.target;
     setNote((prevNote) => {
@@ -20,7 +18,7 @@ function CreateArea(props) {
 
   return (
     <div>
-      <form onSubmit={fnHandleSubmit}>
+      <form>
         <input
           onChange={handleChange}
           name="title"
@@ -34,7 +32,7 @@ function CreateArea(props) {
           rows="3"
           value={note.content}
         />
-        <button
+        <button type="button"
           onClick={() => {
             props.onAdd(note);
             setNote({
